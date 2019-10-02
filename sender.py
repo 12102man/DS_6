@@ -19,13 +19,17 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
 if __name__ == '__main__':
 
     # Connecting to server
-    s = socket.socket()  # Create a socket object
-    host = 'the-o.co'
-    port = 8801  # Reserve a port for your service.
+    s = socket.socket()
+
+    # Reading hostname & port
+    host = sys.argv[2]
+    port = int(sys.argv[3])
+
     s.connect((host, port))
 
     # Reading filename from arguments
     filename = sys.argv[1]
+
     f = open(filename, 'rb')
 
     # Calculating metadata
